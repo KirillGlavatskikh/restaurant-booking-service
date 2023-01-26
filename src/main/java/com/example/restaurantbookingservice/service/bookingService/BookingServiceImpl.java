@@ -1,7 +1,7 @@
 package com.example.restaurantbookingservice.service.bookingService;
 
 import com.example.restaurantbookingservice.model.Booking;
-import com.example.restaurantbookingservice.repository.bookingDao.BookingDaoImpl;
+import com.example.restaurantbookingservice.repository.bookingDao.BookingDao;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -9,15 +9,15 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class BookingServiceImpl implements BookingService {
 
-    private final BookingDaoImpl bookingDaoImpl;
+    private final BookingDao bookingDao;
 
     @Override
     public Booking addNewBooking(Booking booking) {
-        return bookingDaoImpl.addNewBooking(booking);
+        return bookingDao.addNewBooking(booking);
     }
 
     @Override
     public void deleteBooking(Integer id) {
-        bookingDaoImpl.deleteBooking(id);
+        bookingDao.deleteBooking(id);
     }
 }

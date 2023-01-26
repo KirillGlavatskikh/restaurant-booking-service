@@ -1,3 +1,7 @@
 databaseChangeLog:
   - include:
-      file: db/changelog/changeset/add-new-object-in-table-visitor.sql
+      file: db/changelog/changeset/create-visitor-table.sql
+  - include:
+      file: db/changelog/changeset/create-user-role-table.sql
+  - include:
+      file: db/changelog/changeset/create-booking-table.sql

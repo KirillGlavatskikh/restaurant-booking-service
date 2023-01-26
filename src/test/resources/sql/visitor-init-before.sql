@@ -1,0 +1,1 @@
+INSERT INTO visitor(id, full_name, password, is_active) VALUES(123, 'Test User', '6666', true)

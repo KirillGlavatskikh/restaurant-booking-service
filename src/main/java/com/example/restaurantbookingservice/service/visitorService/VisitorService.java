@@ -1,14 +1,17 @@
 package com.example.restaurantbookingservice.service.visitorService;
 
 import com.example.restaurantbookingservice.model.Visitor;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
 
-public interface VisitorService {
+public interface VisitorService extends UserDetailsService {
 
     List<Visitor> getAll();
 
-    Visitor addNewVisitor(Visitor visitor);
+    Visitor addNewUser(Visitor visitor);
+
+    Visitor addNewAdmin(Visitor visitor);
 
     void deleteVisitor(Integer id);
 }

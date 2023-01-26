@@ -1,1 +1,0 @@
-INSERT INTO visitor(name) VALUES('Александр Бородин')

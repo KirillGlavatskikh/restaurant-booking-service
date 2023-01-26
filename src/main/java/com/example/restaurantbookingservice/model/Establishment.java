@@ -8,6 +8,7 @@ import javax.persistence.*;
 @Entity
 @Data
 @NoArgsConstructor
+@Table(name = "establishment")
 public class Establishment {
 
     @Id
@@ -15,8 +16,9 @@ public class Establishment {
     private Integer id;
     @Column(name = "establishment_name ")
     private String establishmentName;
-    @ManyToOne
-    @JoinColumn(name = "format")
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "format",
+            referencedColumnName = "format_name")
     private EstablishmentFormat establishmentFormat;
     @Column(name = "everage_check")
     private Integer everageCheck;

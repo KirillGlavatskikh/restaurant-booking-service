@@ -1,0 +1,1 @@
+DELETE FROM booking WHERE booking.id = 333
