@@ -4,7 +4,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalTime;
 
 @Entity
 @Data
@@ -16,11 +15,13 @@ public class Booking {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @OneToOne
-    @JoinColumn(name = "visitor_name")
+    @JoinColumn(name = "visitor_name",
+            referencedColumnName = "full_name")
     private Visitor visitor;
-    @ManyToOne
-    @JoinColumn(name = "establishment_name")
+    @OneToOne
+    @JoinColumn(name = "establishment_name",
+            referencedColumnName = "establishment_name")
     private Establishment establishment;
     @Column(name = "booking_time")
-    private LocalTime time;
+    private String time;
 }

@@ -1,7 +1,7 @@
 package com.example.restaurantbookingservice.controller;
 
 import com.example.restaurantbookingservice.model.EstablishmentFormat;
-import com.example.restaurantbookingservice.service.establishmentFormatService.EstablishmentFormatServiceImpl;
+import com.example.restaurantbookingservice.service.establishmentFormatService.EstablishmentFormatService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,20 +12,20 @@ import java.util.List;
 @RequiredArgsConstructor
 public class EstablishmentFormatController {
 
-    private final EstablishmentFormatServiceImpl establishmentFormatServiceImpl;
+    private final EstablishmentFormatService establishmentFormatService;
 
     @GetMapping("/all")
     public List<EstablishmentFormat> getAll() {
-        return establishmentFormatServiceImpl.getAll();
+        return establishmentFormatService.getAll();
     }
 
     @PostMapping("/add-new-format")
     public EstablishmentFormat addNewEstablishmentFormat(@RequestBody EstablishmentFormat establishmentFormat) {
-        return establishmentFormatServiceImpl.addNewEstablishmentFormat(establishmentFormat);
+        return establishmentFormatService.addNewEstablishmentFormat(establishmentFormat);
     }
 
     @DeleteMapping("/delete/{id}")
     public void deleteEstablishmentFormat(@PathVariable Integer id) {
-        establishmentFormatServiceImpl.deleteEstablishmentFormat(id);
+        establishmentFormatService.deleteEstablishmentFormat(id);
     }
 }

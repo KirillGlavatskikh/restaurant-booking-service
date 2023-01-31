@@ -1,0 +1,1 @@
+DELETE FROM booking WHERE booking.visitor_name = 'user'

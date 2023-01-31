@@ -1,0 +1,1 @@
+INSERT INTO booking(id, visitor_name, establishment_name, booking_time) VALUES(333, 'Petr', 'Ayami', '18:00')

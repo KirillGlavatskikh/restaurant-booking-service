@@ -1,7 +1,7 @@
 package com.example.restaurantbookingservice.controller;
 
 import com.example.restaurantbookingservice.model.Visitor;
-import com.example.restaurantbookingservice.service.visitorService.VisitorServiceImpl;
+import com.example.restaurantbookingservice.service.visitorService.VisitorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,20 +12,25 @@ import java.util.List;
 @RequiredArgsConstructor
 public class VisitorController {
 
-    private final VisitorServiceImpl visitorServiceImpl;
+    private final VisitorService visitorService;
 
     @GetMapping("/all")
     public List<Visitor> getAll() {
-        return visitorServiceImpl.getAll();
+        return visitorService.getAll();
     }
 
-    @PostMapping("/add-new")
-    public Visitor addNewVisitor(@RequestBody Visitor visitor) {
-        return visitorServiceImpl.addNewVisitor(visitor);
+    @PostMapping("/add-user")
+    public Visitor addNewUser(@RequestBody Visitor visitor) {
+        return visitorService.addNewUser(visitor);
+    }
+
+    @PostMapping("/add-admin")
+    public Visitor addNewAdmin(@RequestBody Visitor visitor){
+        return visitorService.addNewAdmin(visitor);
     }
 
     @DeleteMapping("/delete/{id}")
     public void deleteVisitor(@PathVariable Integer id) {
-        visitorServiceImpl.deleteVisitor(id);
+        visitorService.deleteVisitor(id);
     }
 }
